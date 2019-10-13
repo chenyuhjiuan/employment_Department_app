@@ -9,9 +9,9 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(length = 3)
+    /*@Column(length = 3)*/
     private String name;
-    @Column(length = 3)
+    /*@Column(length = 3)*/
     private String jobtitle;
     private String headshot;
     @ManyToOne(fetch = FetchType.EAGER)
