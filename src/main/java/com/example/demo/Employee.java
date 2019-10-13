@@ -15,7 +15,7 @@ public class Employee {
     @Column(name = "employee_name", length = 250)
     private String name;
     @NotBlank
-    @Column(name = "employee_jobtitle", length = 250)
+    @Column(name = "employee_obtitle", length = 250)
     private String jobtitle;
     private String headshot;
     @ManyToOne(fetch = FetchType.EAGER)
