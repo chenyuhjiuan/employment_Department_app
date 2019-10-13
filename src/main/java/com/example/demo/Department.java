@@ -1,17 +1,21 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Set;
 @Entity
+@Table(name = "department")
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    /*@Column(length = 3)*/
+    @NotBlank
+    @Column(name = "department_depname", length = 250)
     private String depname;
-    /*@Column(length = 3)*/
+    @NotBlank
+    @Column(name = "department_headname", length = 250)
     private String headname;
     @OneToMany(mappedBy = "department",cascade = CascadeType.REMOVE, orphanRemoval = true)
     public Set<Employee> employees;

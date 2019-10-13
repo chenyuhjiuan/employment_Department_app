@@ -1,17 +1,21 @@
 package com.example.demo;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    /*@Column(length = 3)*/
+    @NotBlank
+    @Column(name = "employee_name", length = 250)
     private String name;
-    /*@Column(length = 3)*/
+    @NotBlank
+    @Column(name = "employee_jobtitle", length = 250)
     private String jobtitle;
     private String headshot;
     @ManyToOne(fetch = FetchType.EAGER)
