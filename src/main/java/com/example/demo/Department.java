@@ -9,11 +9,9 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    /*@NotNull
-    @Size(min=3)*/
+    @Column(length = 3)
     private String depname;
-    /*@NotNull
-    @Size(min=3)*/
+    @Column(length = 3)
     private String headname;
     @OneToMany(mappedBy = "department",cascade = CascadeType.REMOVE, orphanRemoval = true)
     public Set<Employee> employees;

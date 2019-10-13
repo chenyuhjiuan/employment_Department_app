@@ -9,11 +9,9 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @NotNull
-    @Size(min=3)
+    @Column(length = 3)
     private String name;
-    @NotNull
-    @Size(min=3)
+    @Column(length = 3)
     private String jobtitle;
     private String headshot;
     @ManyToOne(fetch = FetchType.EAGER)
