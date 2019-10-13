@@ -77,13 +77,13 @@ public class HomeController {
 
     @PostMapping("/processempoloyee")
 
-    public String processEmployeeForm(@RequestParam(value = "file", required = true) MultipartFile file, @Valid Employee employee,Model model, BindingResult result){
+    public String processEmployeeForm(@RequestParam(value = "file", required = true) MultipartFile file, @Valid Employee employee,BindingResult result){
        //If the one of the field is empty, the model will know. Otherwise it won't has the validation function.
-        model.addAttribute("employee",employee);
+       // model.addAttribute("employee",employee);
 
         if (result.hasErrors()){
 
-            return "redirect:/addemployee";
+            return "employeeform";
         }
        if (file.isEmpty()){
             return "redirect:/addemployee";
