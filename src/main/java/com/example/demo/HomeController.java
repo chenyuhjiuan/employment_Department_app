@@ -42,11 +42,23 @@ public class HomeController {
 
 
     @PostMapping("/process")
-    public String processDepartmentForm(@Valid Department department, BindingResult result){
+    public String processDepartmentForm(@RequestParam(value = "file", required = true) MultipartFile file,@Valid Department department, BindingResult result){
 
         if (result.hasErrors()){
             return "departmentform"; }
 
+        if (file.isEmpty()){
+            return "redirect:/adddepartment";
+        }
+        try {
+            Map uploadResult =cloudc.upload(file.getBytes(),
+                    ObjectUtils.asMap("resourcetype", "auto"));
+            department.setHeadshot(uploadResult.get("url").toString());
+            departmentRepository.save(department);
+        } catch (IOException e){
+            e.printStackTrace();
+            return "redirect:/adddepartment";
+        }
         departmentRepository.save(department);
 
         return "redirect:/departmentlist";
@@ -78,8 +90,6 @@ public class HomeController {
     @PostMapping("/processempoloyee")
 
     public String processEmployeeForm(@RequestParam(value = "file", required = true) MultipartFile file, @Valid Employee employee,BindingResult result){
-       //If the one of the field is empty, the model will know. Otherwise it won't has the validation function.
-       // model.addAttribute("employee",employee);
 
         if (result.hasErrors()){
 

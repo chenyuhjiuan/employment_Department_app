@@ -16,9 +16,22 @@
 </nav><br/>
 <div style="width: 1000px;margin-left: 300px;" class="row">
 
-    <h5 style="margin-left: 50px;">Department Name: <span th:text="${department.depname}"></span><br /></h5>
+
 
     <br>
+
+
+    <div class="box" style="width:600px;height: 700px;margin-left: 40px;color:darkred;">
+        <h5 style="margin-left: 50px;">Department Name: <span th:text="${department.depname}"></span><br /></h5>
+
+        <div class="content">Head of Department: <span th:text="${department.headname}"></span><br />
+
+        </div>
+        <div  class="imgBx" style="margin:30px;" th:if="${department.headshot} !=null">
+            <img th:src="${department.headshot}" width="100px" height="180px" />
+
+        </div>
+    </div>
     <table class="content-table">
         <thead>
     <tr>
