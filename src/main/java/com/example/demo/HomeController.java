@@ -49,7 +49,7 @@ public class HomeController {
     public String processDepartmentForm(@RequestParam(value = "file", required = true) MultipartFile file,@Valid Department department, BindingResult result){
 
         if (result.hasErrors()){
-            return "departmentform"; }
+            return "redirect:/adddepartment"; }
 
         if (file.isEmpty()){
             return "redirect:/adddepartment";
