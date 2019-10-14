@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.Set;
 @Entity
 @Table(name = "department")
@@ -69,5 +70,18 @@ public class Department {
 
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+   /* public  void addEmployee(Employee employee){
+        this.employees.add(employee);
+    }
+
+    public void removeEmployee(Employee employee){
+        this.employees.remove((employee));
+    }*/
+
+    public void setEmployees(Collection<Employee> employees) {
+        this.employees.clear();
+        this.employees.addAll(employees);
     }
 }

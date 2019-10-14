@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 
 @Controller
@@ -23,6 +24,7 @@ public class HomeController {
 
     @Autowired
     CloudinaryConfig cloudc;
+
 
     @RequestMapping("/")
     public String home(Model model){
@@ -143,10 +145,12 @@ public class HomeController {
         //model.addAttribute("employees",employeeRepository.findAll());
 
         model.addAttribute("department", departmentRepository.findById(id).get());
-        /*Department department= new Department();
-        Employee employee= new Employee();
-        department.getEmployees().clear();
-        department.getEmployees().add(employee);*/
+        Department department= new Department();
+       Employee employee= new Employee();
+       department.getEmployees().clear();
+        department.getEmployees().add(employee);
+
+
 
         return "departmentform";
     }
