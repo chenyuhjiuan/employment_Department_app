@@ -78,10 +78,10 @@ public class HomeController {
         return "departmentlist";
     }
 
-    @RequestMapping("/departmentform")
+   /* @RequestMapping("/departmentform")
     public String departmentForm(){
         return "departmentform";
-    }
+    }*/
     @GetMapping("/addemployee")
 
     public String employeeForm(Model model){
@@ -100,7 +100,7 @@ public class HomeController {
 
         if (result.hasErrors()){
 
-            return "redirect:/addemployee";
+            return "employeeform";
         }
        if (file.isEmpty()){
             return "redirect:/addemployee";
