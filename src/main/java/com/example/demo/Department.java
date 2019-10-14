@@ -82,7 +82,7 @@ public class Department {
                 this.employees.addAll(employees);
             }
         }*/
-       /*this.employees.clear();
-       this.employees.addAll(employees);*/
+       this.employees.clear();
+       this.employees.addAll(employees);
     }
 }
