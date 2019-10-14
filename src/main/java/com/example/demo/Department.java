@@ -72,15 +72,15 @@ public class Department {
     }
 
     public void setEmployees(Set<Employee> employees) {
-        //this.employees = employees;
+        this.employees = employees;
 
-        if(this.employees==null){
+       /* if(this.employees==null){
             this.employees=employees;
         }else if(this.employees!=employees){
             this.employees.clear();
             if(employees!=null){
                 this.employees.addAll(employees);
             }
-        }
+        }*/
     }
 }
