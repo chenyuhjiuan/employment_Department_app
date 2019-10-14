@@ -80,8 +80,5 @@ public class Department {
         this.employees.remove((employee));
     }*/
 
-    public void setEmployees(Collection<Employee> employees) {
-        this.employees.clear();
-        this.employees.addAll(employees);
-    }
+
 }
