@@ -24,7 +24,7 @@ public class Department {
 
     /*@OneToMany(mappedBy = "department",cascade={CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.REFRESH}, orphanRemoval=true)//fetch = FetchType.EAGER,*/
-    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
 
     public Set<Employee> employees;
 

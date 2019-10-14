@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Employee Form</title>
     <div th:replace="base::head"></div>
-
+</head>
+<body>
+<div th:replace="base::jumbotron1"></div>
 <nav id="nav_bar">
     <ul id="navmenu">
         <li><a  href="/">Home</a></li>
@@ -17,7 +19,7 @@
 
 <br/><br/>
 
-<form action="#" enctype="multipart/form-data" th:action="@{/processempoloyee}" th:object="${employee}" method="post">
+<form action="#" enctype="multipart/form-data" th:action="@{/processemployee}" th:object="${employee}" method="post">
 
     <input type="hidden" th:field="*{id}" />
 
@@ -53,14 +55,8 @@
 </form>
 
 <br/>
-<footer>
-    <div class="footer-main-div" style="margin-left: 300px; width: 1100px; height: 80px;">
-        <p style="color:#ffcce6; ">&copy; Copyright 2019 Emily Marinovich.</p>
 
-
-    </div>
-
-</footer><br/>
+<div th:replace="base::footer"></div>
 <script type="text/javascript">
     const realFileBtn= document.getElementById("file");
     const customBtn=document.getElementById("custom-button");

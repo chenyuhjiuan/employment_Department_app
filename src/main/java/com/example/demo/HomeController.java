@@ -94,16 +94,20 @@ public class HomeController {
     }
 
 
-    @PostMapping("/processempoloyee")
+    @PostMapping("/processemployee")
 
-    public String processEmployeeForm(@RequestParam(value = "file", required = true) MultipartFile file, @Valid Employee employee,BindingResult result){
+    public String processEmployeeForm(@RequestParam(value = "file", required = true) MultipartFile file, @Valid Employee employee,BindingResult result,Model m){
 
         if (result.hasErrors()){
-
+//        m.addAttribute(employee);
+//            return "redirect:/employeeform";
+            m.addAttribute("departments", departmentRepository.findAll());
             return "employeeform";
         }
        if (file.isEmpty()){
-            return "redirect:/addemployee";
+//            return "redirect:/addemployee";
+//           return "redirect:/employeeform";
+           return "employeeform";
         }
         try {
             Map uploadResult =cloudc.upload(file.getBytes(),
@@ -112,10 +116,10 @@ public class HomeController {
             employeeRepository.save(employee);
         } catch (IOException e){
             e.printStackTrace();
-            return "redirect:/addemployee";
+            return "redirect:/employeeform";
         }
 
-
+        m.addAttribute("department", departmentRepository.findAll());
         employeeRepository.save(employee);
 
         return "redirect:/employeelist";
@@ -149,7 +153,7 @@ public class HomeController {
 
 
         model.addAttribute("department", departmentRepository.findById(id).get());
-        model.addAttribute("employees", employeeRepository.findAll());
+        //model.addAttribute("employees", employeeRepository.findAll());
         /*fetch department record from database
         Department department = departmentRepository.findById(id).get();
         //create new employee

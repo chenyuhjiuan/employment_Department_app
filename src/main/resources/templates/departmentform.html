@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Department Form</title>
     <div th:replace="base::head"></div>
-
+</head>
+<body>
+    <div th:replace="base::jumbotron1"></div>
 <nav id="nav_bar">
     <ul id="navmenu">
         <li><a  href="/">Home</a></li>
@@ -46,14 +48,7 @@
 <!--</div>-->
 
 <br/>
-<footer>
-    <div class="footer-main-div" style="margin-left: 300px; width: 1100px; height: 80px;">
-        <p style="color:#ffcce6; ">&copy; Copyright 2019 Emily Marinovich.</p>
 
-
-    </div>
-
-</footer><br/>
     <script type="text/javascript">
         const realFileBtn= document.getElementById("file");
         const customBtn=document.getElementById("custom-button");
@@ -72,5 +67,6 @@
 
 
     </script>
+    <div th:replace="base::footer"></div>
 </body>
 </html>
