@@ -160,7 +160,7 @@ public class HomeController {
         department.getEmployees().addAll(employees);*/
 
 
-        return "redirect:/adddepartment";
+        return "departmentform";
     }
 
 

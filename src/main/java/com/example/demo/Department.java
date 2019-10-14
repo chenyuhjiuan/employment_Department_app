@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 @Entity
 @Table(name = "department")
@@ -65,21 +66,21 @@ public class Department {
         this.headshot = headshot;
     }
 
+
     public Set<Employee> getEmployees() {
         return employees;
     }
 
     public void setEmployees(Set<Employee> employees) {
         //this.employees = employees;
+
         if(this.employees==null){
             this.employees=employees;
-        }else {
-            this.employees.retainAll(employees);
-            this.employees.addAll(employees);
+        }else if(this.employees!=employees){
+            this.employees.clear();
+            if(employees!=null){
+                this.employees.addAll(employees);
+            }
         }
     }
-
-
-
-
 }
