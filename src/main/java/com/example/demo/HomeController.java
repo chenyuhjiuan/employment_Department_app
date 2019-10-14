@@ -146,7 +146,7 @@ public class HomeController {
 
 
         model.addAttribute("department", departmentRepository.findById(id).get());
-        /*fetch department record from database */
+        /*fetch department record from database
         Department department = departmentRepository.findById(id).get();
         //create new employee
         Employee employee=new Employee();
@@ -157,7 +157,7 @@ public class HomeController {
         //clear existing employees list so that they are removed from the database
         department.getEmployees().clear();
         //add the new employees list created above to the existing list
-        department.getEmployees().addAll(employees);
+        department.getEmployees().addAll(employees);*/
 
 
         return "departmentform";

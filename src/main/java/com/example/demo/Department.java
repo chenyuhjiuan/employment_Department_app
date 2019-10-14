@@ -70,7 +70,13 @@ public class Department {
     }
 
     public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
+        //this.employees = employees;
+        if(this.employees==null){
+            this.employees=employees;
+        }else {
+            this.employees.retainAll(employees);
+            this.employees.addAll(employees);
+        }
     }
 
 
