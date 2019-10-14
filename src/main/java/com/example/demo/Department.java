@@ -21,7 +21,7 @@ public class Department {
 
     private String headshot;
 
-    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL, orphanRemoval = true)//fetch = FetchType.EAGER,
     public Set<Employee> employees;
 
     public Department() {
