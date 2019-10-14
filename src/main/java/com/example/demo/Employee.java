@@ -23,7 +23,7 @@ public class Employee {
     private String headshot;
     @ManyToOne(fetch = FetchType.EAGER)
     /*@ManyToOne
-    @NotFound(action = NotFoundAction.IGNORE)^/
+    @NotFound(action = NotFoundAction.IGNORE)*/
     @JoinColumn(name="department_id")
     private Department department;
 
