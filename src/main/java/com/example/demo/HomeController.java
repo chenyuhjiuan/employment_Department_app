@@ -94,7 +94,7 @@ public class HomeController {
 
         if (result.hasErrors()){
 
-            return "employeeform";
+            return "redirect:/addemployee";
         }
        if (file.isEmpty()){
             return "redirect:/addemployee";
