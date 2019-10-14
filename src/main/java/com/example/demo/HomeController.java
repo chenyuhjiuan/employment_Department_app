@@ -103,7 +103,7 @@ public class HomeController {
             return "employeeform";
         }
        if (file.isEmpty()){
-            return "redirect:/addemployee";
+            return "employeeform";
         }
         try {
             Map uploadResult =cloudc.upload(file.getBytes(),
