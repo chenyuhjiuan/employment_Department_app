@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -20,6 +23,7 @@ public class Employee {
     private String headshot;
     //@ManyToOne(fetch = FetchType.EAGER)
     @ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name="department_id")
     private Department department;
 
