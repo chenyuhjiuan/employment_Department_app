@@ -149,6 +149,7 @@ public class HomeController {
 
 
         model.addAttribute("department", departmentRepository.findById(id).get());
+        model.addAttribute("employees", employeeRepository.findAll());
         /*fetch department record from database
         Department department = departmentRepository.findById(id).get();
         //create new employee
