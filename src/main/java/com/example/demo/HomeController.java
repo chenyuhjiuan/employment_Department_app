@@ -78,7 +78,10 @@ public class HomeController {
         return "departmentlist";
     }
 
-
+    @RequestMapping("/departmentform")
+    public String departmentForm(){
+        return "departmentform";
+    }
     @GetMapping("/addemployee")
 
     public String employeeForm(Model model){
