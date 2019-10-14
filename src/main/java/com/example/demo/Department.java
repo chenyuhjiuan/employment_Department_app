@@ -22,8 +22,10 @@ public class Department {
 
     private String headshot;
 
-    @OneToMany(mappedBy = "department",cascade={CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.REFRESH}, orphanRemoval=true)//fetch = FetchType.EAGER,
+    /*@OneToMany(mappedBy = "department",cascade={CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REFRESH}, orphanRemoval=true)//fetch = FetchType.EAGER,*/
+    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL,orphanRemoval = true)
+
     public Set<Employee> employees;
 
     public Department() {
