@@ -21,9 +21,9 @@ public class Employee {
     @Column(name = "employee_obtitle", length = 250)
     private String jobtitle;
     private String headshot;
-    //@ManyToOne(fetch = FetchType.EAGER)
-    @ManyToOne
-    @NotFound(action = NotFoundAction.IGNORE)
+    @ManyToOne(fetch = FetchType.EAGER)
+    /*@ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)^/
     @JoinColumn(name="department_id")
     private Department department;
 
