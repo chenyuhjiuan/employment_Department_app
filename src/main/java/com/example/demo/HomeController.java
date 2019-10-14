@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -142,14 +143,21 @@ public class HomeController {
 
     public String updateDepartment(@PathVariable("id") long id, Model model){
 
-        //model.addAttribute("employees",employeeRepository.findAll());
+
 
         model.addAttribute("department", departmentRepository.findById(id).get());
-       /* Department department= new Department();
-       Employee employee= new Employee();
-       department.getEmployees().clear();
-        department.getEmployees().add(employee);*/
-
+        /*fetch department record from database */
+        Department department = departmentRepository.findById(id).get();
+        //create new employee
+        Employee employee=new Employee();
+        //create new employees list;
+        List employees = new ArrayList();
+        //add employee to the list of employees
+        employees.add(employee);
+        //clear existing employees list so that they are removed from the database
+        department.getEmployees().clear();
+        //add the new employees list created above to the existing list
+        department.getEmployees().addAll(employees);
 
 
         return "departmentform";

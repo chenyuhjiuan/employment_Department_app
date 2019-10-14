@@ -21,7 +21,8 @@ public class Department {
 
     private String headshot;
 
-    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL, orphanRemoval = true)//fetch = FetchType.EAGER,
+    @OneToMany(mappedBy = "department",cascade={CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REFRESH}, orphanRemoval=true)//fetch = FetchType.EAGER,
     public Set<Employee> employees;
 
     public Department() {
@@ -72,13 +73,7 @@ public class Department {
         this.employees = employees;
     }
 
-   /* public  void addEmployee(Employee employee){
-        this.employees.add(employee);
-    }
 
-    public void removeEmployee(Employee employee){
-        this.employees.remove((employee));
-    }*/
 
 
 }
