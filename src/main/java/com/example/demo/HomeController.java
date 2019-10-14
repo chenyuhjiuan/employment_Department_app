@@ -142,13 +142,13 @@ public class HomeController {
 
     public String updateDepartment(@PathVariable("id") long id, Model model){
 
-        //model.addAttribute("employees",employeeRepository.findAll());
+        model.addAttribute("employees",employeeRepository.findAll());
 
         model.addAttribute("department", departmentRepository.findById(id).get());
-        Department department= new Department();
+       /* Department department= new Department();
        Employee employee= new Employee();
        department.getEmployees().clear();
-        department.getEmployees().add(employee);
+        department.getEmployees().add(employee);*/
 
 
 
