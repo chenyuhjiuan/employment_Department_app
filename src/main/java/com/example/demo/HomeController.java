@@ -96,7 +96,7 @@ public class HomeController {
 
     @PostMapping("/processemployee")
 
-    public String processEmployeeForm(@RequestParam(value = "file", required = true) MultipartFile file, @Valid Employee employee,BindingResult result,Model m){
+    public String processEmployeeForm(@RequestParam(value = "file") MultipartFile file, @Valid Employee employee,BindingResult result,Model m){//, required = true
 
         if (result.hasErrors()){
 //        m.addAttribute(employee);
@@ -194,10 +194,10 @@ public class HomeController {
 
     @RequestMapping("/update_employee/{id}")
 
-    public String updateEmployee(@PathVariable("id") long id, Model model){
+    public String updateEmployee(@PathVariable("id") long id, Model model, Employee employee){
 
         model.addAttribute("employee", employeeRepository.findById(id).get());
-
+        //employeeRepository.save(employee);
         model.addAttribute("departments",departmentRepository.findAll());
 
         return "employeeform";

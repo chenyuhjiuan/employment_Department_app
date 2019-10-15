@@ -43,7 +43,8 @@
 
 </select>
 <br/>
-    <input hidden="hidden" style="margin:10px; border-radius: 5px;" type="file" name="file" id="file">
+    <input hidden="hidden" style="margin:10px; border-radius: 5px;" type="file" name="file" id="file" >
+    <!-- th:field="*{headshot}" <span th:if="${#fields.hasErrors('headshot')}" th:errors="*{headshot}"></span> -->
     <button type="button"  id="custom-button" class="btn btn-warning btn-lg" role="button">Choose Employee Photo</button>
     <span id="custom-text">No file chosen, yet.</span>
 

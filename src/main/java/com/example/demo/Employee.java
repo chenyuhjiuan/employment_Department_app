@@ -24,8 +24,8 @@ public class Employee {
     @NotNull
     @Size(min=3)
     private String jobtitle;
-//    @NotNull
-//    @Size(min=3)
+    //@NotNull
+    //@Size(min=3)
     private String headshot; // image file name
     @ManyToOne(fetch = FetchType.LAZY)
     /*@ManyToOne
