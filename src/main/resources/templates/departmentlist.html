@@ -28,7 +28,7 @@ font-family: 'Patua One', cursive;">Sterling Solutions, Inc.</h1>
         </nav><br/>
 
 
-        <div style="width: 1000px;margin-left: 300px;" class="row">
+<div style="width: 1000px;margin-left: 300px;" class="row">
             <table class="content-table">
                 <thead>
                 <tr>
@@ -49,21 +49,30 @@ font-family: 'Patua One', cursive;">Sterling Solutions, Inc.</h1>
                 </tbody>
             </table>
             <h5 style="margin: 40px;">After adding the information of the employees, the new data will be listed below properly.</h5>
-<ul>
+    <table class="content-table">
+    <ul>
+        <tbody>
+        <tr>
+        <td>
              <div th:each="department:${departments}">
-                <h4 th:text="${department.depname}"></h4>
+                <h5 th:text="${department.depname}"></h5>
                 <h6 th:inline="text"> Director name: [[${department.directorname}]].</h6>
                 <ul style="list-style-type: square;">
                     <th:block th:each="employee:${department.employees}">
                         <li th:inline="text"><b>[[${employee.name}]]: </b>[[${employee.jobtitle}]]</li>
                     </th:block>
                 </ul>
-<br/>
+            <br/>
 
-            </div><br/>
-</ul>
-
-            <br/></div>
+            </div>
+        </td>
+        </tr>
+        </tbody>
+    <br/>
+    </ul>
+    </table>
+            <br/>
+</div>
         <footer>
             <div class="footer-main-div" style="margin-left: 300px; width: 1100px; height: 80px;">
                 <p style="color:#ffcce6; ">&copy; Copyright 2019 Emily Marinovich.</p>

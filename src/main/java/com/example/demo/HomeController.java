@@ -81,10 +81,10 @@ public class HomeController {
 
     @PostMapping("/processempoloyee")
 
-    public String processEmployeeForm(@Valid Employee employee,  BindingResult result,@RequestParam("file") MultipartFile file){
+    public String processEmployeeForm(@Valid Employee employee,  BindingResult result,@RequestParam("file") MultipartFile file, Model m){
 
         if (result.hasErrors()){
-
+            //m.addAttribute(employeeRepository.findAll());
             return "employeeform";
         }
         if (file.isEmpty()){
