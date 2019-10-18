@@ -128,12 +128,13 @@ form{
     margin-left: 300px;
 }
 input[type=text]{
-    width:300px;
+    width:400px;
     padding:5px;
     font-size: 15px;
     color:gray;
     margin:5px;
     border-radius: 5px;
+    height: 50px;
 }
 
 
@@ -223,7 +224,7 @@ footer p {
     /*font-size: 14px;*/
     margin-top:10px;
     margin-bottom: 30px;
-    width:250px;
+    width:350px;
 
 }
 .btn-warning:hover,

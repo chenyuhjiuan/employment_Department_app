@@ -18,12 +18,12 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         Department department;
 
-        department= new Department("Department1",  "Director1");
+        department= new Department("Accounting",  "Marvin Gaye");
         departmentRepository.save(department);
 
-        department= new Department("Department2",  "Director2");
+        department= new Department("HR",  "Russell Baker");
         departmentRepository.save(department);
-        department= new Department("Department3",  "Director3");
+        department= new Department("Management",  "Han Shan");
         departmentRepository.save(department);
 
 

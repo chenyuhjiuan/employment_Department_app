@@ -1,16 +1,35 @@
 package com.example.demo;
 
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    /*@NotBlank
+    @Column(name = "employee_name", length = 250)*/
+    @NotNull
+    @Size(min=3)
     private String name;
+    /*@NotBlank
+    @Column(name = "employee_jobtitle", length = 250)*/
+    @NotNull
+    @Size(min=3)
     private String jobtitle;
-    private String headshot;
-    @ManyToOne(fetch = FetchType.EAGER)
+    //@NotNull
+    //@Size(min=3)
+    private String headshot; // image file name
+    @ManyToOne(fetch = FetchType.LAZY)
+    /*@ManyToOne
+    @NotFound(action = NotFoundAction.IGNORE)*/
     @JoinColumn(name="department_id")
     private Department department;
 

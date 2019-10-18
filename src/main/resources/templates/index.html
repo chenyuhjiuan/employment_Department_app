@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
-<div th:replace="base::headNav"></div>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+<div th:replace="base::head"></div>
+</head>
+<body>
+<div th:replace="base::jumbotron1"></div>
 <nav id="nav_bar">
     <ul id="navmenu">
         <li><a class="current" href="/">Home</a></li>
@@ -17,14 +22,15 @@
     <thead>
     <tr>
         <th>Department Name</th>
-        <th>Director Name</th>
+        <th>Head of Department</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="department : ${departments}">
 
         <td th:text="${department.depname}"></td>
-        <td th:text="${department.directorname}"></td>
+        <td th:text="${department.headname}"></td>
         <td>
             <a th:href="@{update_department/{id}(id=${department.id})}" class="btn btn-primary btn-lg" role="button">Update</a>
             <a th:href="@{detail_department/{id}(id=${department.id})}" class="btn btn-primary btn-lg" role="button">Details</a>

@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Employee</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Patua+One&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <title>Department Form</title>
+    <div th:replace="base::head"></div>
 </head>
-<body  >
-
-<div class="jumbotron " >
-    <h1 style="font-family: 'Dancing Script', cursive;
-font-family: 'Patua One', cursive;">Sterling Solutions, Inc.</h1>
-    <h3 style="font-family: 'Dancing Script', cursive;color:darkred;">Employees' Database</h3>
-</div>
-
+<body>
+    <div th:replace="base::jumbotron1"></div>
 <nav id="nav_bar">
     <ul id="navmenu">
         <li><a  href="/">Home</a></li>
@@ -31,7 +21,7 @@ font-family: 'Patua One', cursive;">Sterling Solutions, Inc.</h1>
 <!--<div style="width: 1000px;height: 600px;margin-left: 300px;" class="row">-->
 
 <br/><br/>
-    <form action="#" th:action="@{/process}" th:object="${department}" method="post">
+    <form action="#" enctype="multipart/form-data" th:action="@{/process}" th:object="${department}" method="post">
 
         <input type="hidden" th:field="*{id}" />
 
@@ -39,10 +29,15 @@ font-family: 'Patua One', cursive;">Sterling Solutions, Inc.</h1>
 
         <span th:if="${#fields.hasErrors('depname')}" th:errors="*{depname}"></span>
         <br>
-        Director Name:&nbsp;<input type="text" th:field="*{directorname}" />
+        Head of Department:&nbsp;<input type="text" th:field="*{headname}" />
 
-        <span th:if="${#fields.hasErrors('directorname')}" th:errors="*{directorname}"></span>
+        <span th:if="${#fields.hasErrors('headname')}" th:errors="*{headname}"></span>
         <br>
+
+        <input hidden="hidden" style="margin:10px; border-radius: 5px;" type="file" name="file" id="file">
+        <button type="button"  id="custom-button" class="btn btn-warning btn-lg" role="button">Choose the Head Photo</button>
+        <span id="custom-text">No file chosen, yet.</span>
+
         <input type="submit" value="Submit" class="btn btn-primary btn-lg" role="button"/>&nbsp;&nbsp;&nbsp;&nbsp;
         <a style="margin-top: 10px;" href="/" class="btn btn-primary btn-lg" role="button">See All information of the company. </a><br/>
 
@@ -53,13 +48,25 @@ font-family: 'Patua One', cursive;">Sterling Solutions, Inc.</h1>
 <!--</div>-->
 
 <br/>
-<footer>
-    <div class="footer-main-div" style="margin-left: 300px; width: 1100px; height: 80px;">
-        <p style="color:#ffcce6; ">&copy; Copyright 2019 Emily Marinovich.</p>
+
+    <script type="text/javascript">
+        const realFileBtn= document.getElementById("file");
+        const customBtn=document.getElementById("custom-button");
+        const custom8Txt=document.getElementById("custom-text");
+
+        customBtn.addEventListener("click",function(){
+            realFileBtn.click();
+        });
+        realFileBtn.addEventListener("change",function () {
+            if(realFileBtn.value){
+                custom8Txt.innerHTML=realFileBtn.value+" has been chosen.";
+            }else {
+                custom8Txt.innerHTML="No file chosen,yet.";
+            }
+        });
 
 
-    </div>
-
-</footer><br/>
+    </script>
+    <div th:replace="base::footer"></div>
 </body>
 </html>
